@@ -17,7 +17,7 @@ export class RegisterUser extends HelperBaseRP{
         await this.dob("DateOfBirthDay","9")
         await this.dob("DateOfBirthMonth","May")
         await this.dob("DateOfBirthYear","1997")
-        await this.inputBox("Email","ascvsshcvg@gmail.com")
+        await this.inputBox("Email","ascfsshcvg@gmail.com")
         await this.inputBox("Company name","TCS")
         const password = this.page.locator('.inputs').filter({has:this.page.locator("label:text-is('Password:')")}).locator('input')
         await password.fill("AusSyd@*394948")
