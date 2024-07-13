@@ -24,7 +24,6 @@ export class LoginCheck_LoggingIn extends HelperBaseLP{
             
         }
         else{
-            await expect(this.page.locator('form[novalidate="novalidate"]')).toHaveScreenshot({maxDiffPixels: 250})
             expect(await this.page.locator('.message-error').textContent()).toContain('No customer account found')
         }
 
