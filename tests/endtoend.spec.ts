@@ -15,6 +15,5 @@ test.describe('register_login_addtocart',async ()=>{
         await log.login.loggingIn()
         await desktop.byc.selectingBYCtoCart()
         await desktop.byc.verifyBYCToCart()
-        //done
     })
 })
