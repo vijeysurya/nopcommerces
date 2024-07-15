@@ -1,5 +1,5 @@
 import {Page,expect} from "@playwright/test"
-import configDetails from "./testData/byc.json"
+import configDetails from "../../../testData/byc.json"
 
 export class BuildYourComputer{
     readonly page: Page
@@ -102,7 +102,8 @@ export class BuildYourComputer{
         const processorSelect = this.page.locator(configLocator)
         await processorSelect.selectOption(configToSelect)
     }
-
+    
+    
     async verifyBYCToCart(){
         await this.sku_price_quantity('.sku span',this.expectedSkuValue,false)
         const actualConfigVal = await this.page.getByRole('row',{name:"Build your own computer"}).locator('.product .attributes').textContent()

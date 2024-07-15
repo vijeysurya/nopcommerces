@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": ".Nop.Antiforgery",
-      "value": "CfDJ8EcPreBDTLZEuaAPyfUP1Rkrd8K2ncN1kRGbXGs6di3jum2KJtaO_XM44vnaZLQkLCy0Q6-EZKnNmOV7k6V0pIsHqam5KjbcgocldxrB8RIQNCmat5x_z_zrbSTtM6vkfiEIubo1iuyK-F8_gVijsFc",
+      "value": "CfDJ8EcPreBDTLZEuaAPyfUP1Rmy28ASwh6klGLTPqn_oEmk3tJK9c1uAE7lSZMDKN9GJgJoVP1xPVk6SYr67GyQqR82TWmmEHjR6Sd8g4oIji8A4yRh5JDH_88A9Wf9bw8rhca0ho-HdWkV3Kot7IZzOeI",
       "domain": "demo.nopcommerce.com",
       "path": "/",
       "expires": -1,
@@ -12,27 +12,17 @@
     },
     {
       "name": "_ga",
-      "value": "GA1.1.647966658.1720883162",
+      "value": "GA1.1.1052116166.1720941906",
       "domain": ".nopcommerce.com",
       "path": "/",
-      "expires": 1755443163.055597,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_ga_SCT41TW89V",
-      "value": "GS1.1.1720883162.1.1.1720883163.0.0.0",
-      "domain": ".nopcommerce.com",
-      "path": "/",
-      "expires": 1755443163.153485,
+      "expires": 1755501907.491666,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": ".Nop.Authentication",
-      "value": "CfDJ8EcPreBDTLZEuaAPyfUP1RnoO1F5tLGEUjHX7pZVuMC8fxWxdZo3IqW0dQf72ZBhSJTdPcz8dcX6mk8o6D79KoFUPI6APMj5tFDrTQ_MHmWZVTTflbgcGy0ax4z_Rph_yWeTAm0MwcBUpm9UBJOZ4_vBHyW4tvfnlyqkedgdFzN-J_GyK3iIpSAqvhFICoO6Lex7C0054T8bPkFVuxpbIcvfJHvCZ65izKvYfwWnrsLiJXRIIgfNlZhkV1BQJs0OIZvqdEug-8vKQcRUpRuFyBFGtGuV_1HRAL3Ct132TfG7kQx-wD_5hGRJ5ORQxFeb80dENPdoe_tLtKbAEv_HCmydFYAXMHZhJjt5J-8e48-H9880IdPLiYj3D8b1_OGRJs77H8u36CKsJs8vJHJoQTqvaNdk1l-EmcWQLite8HDM-D--IYVDnrMqN-8m4fikbmgCOwT4UEk6XSpYVnGRca_UUDIj4zwboSmxChb7aucHhSE7sPTndaR9i5LMCAUz7D__dwsFW2pI_PywtsRZ8e5JPH20bNvrm7dJvpQCbbFMMbODSD_0trB_duEHzRh3kQ",
+      "value": "CfDJ8EcPreBDTLZEuaAPyfUP1Rk0ct_1XJJIOB9TQ8efnl5eyFF1IbRLAwbZ8QY0kV0HCjk1uIYT_ptGdvlHvHllWdIpqicNvjTL9n4_RFIfBWRN2DIfBgWyDfMG1SPe0192uJU7BhizX5DUZhfhKQlUgy4RwtLbr3Rmb_rEEIG8Y5CkSMLmYfNNW4i-JTtyKzZsz5VcSjEU-pfW3GHiXHOWD--jqYxHcKDjoZQ4OO6DfnSUG1sbWguHPcaaNUBcYjQib0yrsTuPY-NjaWrkYYWmjiHxax7od1jifb_opDyQ-I6aMYORhSWWRMcYz5P3eE1HGIdMMMYIWDAH2DXIEynYd3SCi30fhiPWhD5_o_FmD_v4nQXLna6FIHZLYltlYGvG84GfbuKHDGlGwI5j3stvfQzjpcO5j-bRbtOMkSF97i2vv8SRMrqbe_u5a6Uj-M8-pj1EyNY4fYfy_GV5Kiw0OwUvNe_B1xJA_T3qHEyylRIJjUsNuS55-o5ANcFLbIn80iwXlYEq5Rf6fY1LRVkXJWhQ0GaIDRiIGB6TEcPqsVxDbkEzPD8Nviyp_7Dqo3CHcg",
       "domain": "demo.nopcommerce.com",
       "path": "/",
       "expires": -1,
@@ -42,10 +32,10 @@
     },
     {
       "name": ".Nop.Customer",
-      "value": "042111ec-e163-44db-8052-37a74bd36e09",
+      "value": "2af98cb9-0c69-4a04-8202-5c36e34263ef",
       "domain": "demo.nopcommerce.com",
       "path": "/",
-      "expires": 1752419163.846871,
+      "expires": 1752477906.387471,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -55,7 +45,17 @@
       "value": "c%3Den-US%7Cuic%3Den-US",
       "domain": "demo.nopcommerce.com",
       "path": "/",
-      "expires": 1752419163.846923,
+      "expires": 1752477906.387592,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_SCT41TW89V",
+      "value": "GS1.1.1720941906.1.1.1720941907.0.0.0",
+      "domain": ".nopcommerce.com",
+      "path": "/",
+      "expires": 1755501907.491318,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
