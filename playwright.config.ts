@@ -11,7 +11,7 @@ require('dotenv').config()
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig<TypeOptions>({
-  testDir: './tests',
+  //testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -34,12 +34,23 @@ export default defineConfig<TypeOptions>({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    
   },
+  globalSetup: require.resolve('./tests/setups-eg/global.setup.ts'),
+  globalTeardown: require.resolve('./tests/setups-eg/globalteardown.setup.ts'),
 
   /* Configure projects for major browsers */
   projects: [
     {name: 'setup', testMatch:'auth.setup.ts'},
+    {
+      name: 'project-setup',
+      testMatch: 'project.setup.ts',
+      dependencies: ['setup'],
+      teardown: 'project-setup-teardown'
+    },
+    {
+      name: 'project-setup-teardown',
+      testMatch: 'projectteardown.setup.ts'
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
@@ -52,7 +63,6 @@ export default defineConfig<TypeOptions>({
         }
       }
     },
-
     {
       name: 'runUsingAuth',//loggin will be skipped
       use: { ...devices['Desktop Chrome'],
@@ -69,9 +79,18 @@ export default defineConfig<TypeOptions>({
     },
 
     {
+      name: 'project',
+      testMatch: 'project.spec.ts',
+      use: {
+        browserName: 'chromium',
+        storageState: '.auth/users.json'
+      },
+      dependencies: ['project-setup']
+    },
+
+    {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'],storageState: '.auth/users.json'},
-      dependencies : ['setup']
+      use: { ...devices['Desktop Firefox'] }
     },
 
     {

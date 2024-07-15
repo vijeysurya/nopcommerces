@@ -12,6 +12,7 @@ setup('Authentication',async ({page})=>{
     await expect(page.locator('.form-fields')).toBeVisible()
     await loginPage.login.loggingIn()
     await page.context().storageState({path:authFile})
+    console.log("Im executed first")
 })
 
 /*setup('testAPILogin',async ({request})=>{

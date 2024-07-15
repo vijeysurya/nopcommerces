@@ -17,6 +17,8 @@
     "@playwright/test": "^1.45.1",
     "@types/node": "^20.14.10",
     "cheerio": "^1.0.0-rc.12",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "node-fetch": "^3.3.2"
   }
 }
