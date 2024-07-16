@@ -8,11 +8,12 @@ export class LoginCheck_LoggingIn extends HelperBaseLP{
     }
     
     async loginCheck(){
-        await this.login('sud@gmail.com',faker.string.alpha(10),false)
+        //await this.login('sudivss@gmail.com',faker.string.alpha(10),false)
+        await this.login('sudivss@gmail.com','AusSyd@*394948',true)
     }
 
     async loggingIn(){
-        await this.login('sudivs@gmail.com','AusSyd@*394948',true)
+        await this.login('sudivss@gmail.com','AusSyd@*394948',true)
     }
 
     private async login(emailId:string,password:string,loginType:boolean){
