@@ -2,6 +2,7 @@ import { Desktop } from "../page-Objects/SelectingItemToCart/computer-Desktop/pa
 import { RegistrationPage } from "../page-Objects/RegistrationPage/pageManagerRP"
 import { LoginPage } from "../page-Objects/LoginPage/pageManagerLP"
 import { test } from "../test-options"
+import { argosScreenshot } from "@argos-ci/playwright";
 
 test.describe('register_login_addtocart',async ()=>{
     test('computerDesktops',async ({page,registrationPage})=>{
@@ -12,6 +13,7 @@ test.describe('register_login_addtocart',async ()=>{
         await page.getByText('Log out').click()
         await page.getByText('Log in').click()
         await log.login.loginCheck()
+        await argosScreenshot(page, "loginCheckScreenshot");
         await log.login.loggingIn()
         await desktop.byc.selectingBYCtoCart()
         await desktop.byc.verifyBYCToCart()

@@ -24,7 +24,14 @@ export default defineConfig<TypeOptions>({
   reporter: [
     ['json',{outputFile:'test-results/Report/report.json'}],
     ['junit',{outputFile:'test-results/Report/report.xml'}],
-    ['html']
+    ['html'],
+    process.env.CI ? ["dot"] : ["list"],
+    [
+      "@argos-ci/playwright/reporter",
+      {
+        uploadToArgos: !!process.env.CI,
+      },
+    ],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -34,6 +41,7 @@ export default defineConfig<TypeOptions>({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: "only-on-failure",
   },
   globalSetup: require.resolve('./tests/setups-eg/global.setup.ts'),
   globalTeardown: require.resolve('./tests/setups-eg/globalteardown.setup.ts'),
