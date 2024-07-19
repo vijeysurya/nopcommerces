@@ -1,10 +1,12 @@
 import ExcelJs from "exceljs"
 import { skip } from "node:test"
+import path from "path"
 
 async function excelReadRegisterLogin(sheetName){
     let ex_Arrs = []
     const workbook = new ExcelJs.Workbook()
-    await workbook.xlsx.readFile("C:/Users/Vijey Surya J/OneDrive/Documents/VijeySurya J/Trainings/Playwright/GitRepo/demo-nopcommerce/testData/Data.xlsx")
+    const filePath = path.resolve(__dirname, '../testData/Data.xlsx');
+    await workbook.xlsx.readFile(filePath)
     const worksheet = workbook.getWorksheet(sheetName)
     worksheet?.eachRow((row,rowNumber)=>{
         if(rowNumber==1){

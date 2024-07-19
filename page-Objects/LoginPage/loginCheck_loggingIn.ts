@@ -37,7 +37,7 @@ export class LoginCheck_LoggingIn extends HelperBaseLP{
 
 
     async loggingIn(){
-        await this.login('vijeysssdccmn@gmail.com','AusSyd@*394948',true)
+        await this.login('vijeysssdddmn@gmail.com','AusSyd@*394948',true)
     }
 
     private async login(emailId:string,password:string,loginType:boolean){

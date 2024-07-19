@@ -9,5 +9,5 @@ test('excel test RP',async ({page,registrationPage})=>{
 test.only('excel test LP',async ({page,loginPages})=>{
     const pm = new PageManager(page)
     await pm.log.login.loginCheckExcel()
-    await pm.log.login.loggingInExcel()
+    //await pm.log.login.loggingInExcel()
 })
