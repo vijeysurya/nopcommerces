@@ -1,19 +1,43 @@
 import {Page,expect} from "@playwright/test"
-import {faker} from "@faker-js/faker"
+import {faker, ro, sk} from "@faker-js/faker"
 import { HelperBaseLP } from "./helperBase"
+import excelReadRegisterLogin from "../helperBase"
 
 export class LoginCheck_LoggingIn extends HelperBaseLP{
     constructor(page: Page){
         super(page)
     }
     
-    async loginCheck(){
-        //await this.login('sudivss@gmail.com',faker.string.alpha(10),false)
-        await this.login('sudivss@gmail.com','AusSyd@*394948',true)
+    async loginCheckExcel(){
+        let ex_Arrs = await excelReadRegisterLogin("loginCheck")
+        for(var ex_Arr of ex_Arrs){
+            await this.page.locator('#Email').fill(ex_Arr[0])
+            await this.page.locator('#Password').click()
+            await expect(this.page.locator('#Email-error')).toHaveText('Please enter a valid email address.')
+            await this.page.locator('#Email').clear()
+            await expect(this.page.locator('#Email-error')).toHaveText('Please enter your email')
+        }
     }
 
+    async loginCheck(){
+        await this.login('sudivss@gmail.com',faker.string.alpha(10),false)
+    }
+
+
+    async loggingInExcel(){
+        let ex_Arrs = await excelReadRegisterLogin("registerUsr")
+        console.log(ex_Arrs)
+        for(var ex_Arr of ex_Arrs){
+            await this.login(ex_Arr[6].text,ex_Arr[9].text,true)
+            await this.page.getByRole('link',{name:'Log out'}).click()
+            await expect(this.page.getByRole('link',{name:'Log in'})).toBeVisible()
+            await this.page.getByRole('link',{name:'Log in'}).click()
+        }
+    }
+
+
     async loggingIn(){
-        await this.login('sudivss@gmail.com','AusSyd@*394948',true)
+        await this.login('vijeysssdaae@gmail.com','AusSyd@*394948',true)
     }
 
     private async login(emailId:string,password:string,loginType:boolean){

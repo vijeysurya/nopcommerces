@@ -50,18 +50,18 @@ export default defineConfig<TypeOptions>({
   projects: [
     {name: 'setup', testMatch:'auth.setup.ts'},
     {
-      name: 'project-setup',
+      name: 'prj-setup',
       testMatch: 'project.setup.ts',
       dependencies: ['setup'],
-      teardown: 'project-setup-teardown'
+      teardown: 'prj-setup-teardown'
     },
     {
-      name: 'project-setup-teardown',
+      name: 'prj-setup-teardown',
       testMatch: 'projectteardown.setup.ts'
     },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
+      use: { browserName: 'chromium',
         video: {
           mode : 'on',
           size : {width:1920,height:1080}
@@ -87,13 +87,13 @@ export default defineConfig<TypeOptions>({
     },
 
     {
-      name: 'project',
+      name: 'prjsetuptest',
       testMatch: 'project.spec.ts',
       use: {
         browserName: 'chromium',
         storageState: '.auth/users.json'
       },
-      dependencies: ['project-setup']
+      dependencies: ['prj-setup']
     },
 
     {

@@ -1,21 +1,21 @@
-import { Desktop } from "../page-Objects/SelectingItemToCart/computer-Desktop/pageManagerDesktop"
-import { RegistrationPage } from "../page-Objects/RegistrationPage/pageManagerRP"
-import { LoginPage } from "../page-Objects/LoginPage/pageManagerLP"
 import { test } from "../test-options"
-import { argosScreenshot } from "@argos-ci/playwright";
+import { PageManager } from "../page-Objects/pageManager"
+import { argosScreenshot } from "@argos-ci/playwright"
+
 
 test.describe('register_login_addtocart',async ()=>{
     test('computerDesktops',async ({page,registrationPage})=>{
-        const desktop = new Desktop(page)
-        const register = new RegistrationPage(page)
-        const log = new LoginPage(page)
-        await register.rpregusr.registerUser()
-        await page.getByText('Log out').click()
+        const pm = new PageManager(page)
+        await pm.register.rpregusr.registerUser()//single user register
+        await page.getByRole('link',{name:'Log out'}).click()
+        await page.getByRole('link',{name:'Register'}).click()
+        await pm.register.rpregusr.registerUserExcel()//multiple register creation using excel
         await page.getByText('Log in').click()
-        await log.login.loginCheck()
+        await pm.log.login.loginCheck()
         await argosScreenshot(page, "loginCheckScreenshot");
-        await log.login.loggingIn()
-        await desktop.byc.selectingBYCtoCart()
-        await desktop.byc.verifyBYCToCart()
+        await pm.log.login.loginCheckExcel()//multiple email wrong inputs using excel
+        await pm.log.login.loggingIn()
+        await pm.desktop.byc.selectingBYCtoCart()
+        await pm.desktop.byc.verifyBYCToCart()
     })
 })
