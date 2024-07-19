@@ -4,7 +4,7 @@ import { argosScreenshot } from "@argos-ci/playwright"
 
 
 test.describe('register_login_addtocart',async ()=>{
-    test('computerDesktops',async ({page,registrationPage})=>{
+    test('computerDesktops @e2e',async ({page,registrationPage})=>{
         const pm = new PageManager(page)
         await pm.register.rpregusr.registerUser()//single user register
         await page.getByRole('link',{name:'Log out'}).click()
