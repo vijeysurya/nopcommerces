@@ -1,5 +1,5 @@
 import {Page,expect} from "@playwright/test"
-import {faker, ro, sk} from "@faker-js/faker"
+import {faker} from "@faker-js/faker"
 import { HelperBaseLP } from "./helperBase"
 import excelReadRegisterLogin from "../helperBase"
 
@@ -37,7 +37,7 @@ export class LoginCheck_LoggingIn extends HelperBaseLP{
 
 
     async loggingIn(){
-        await this.login('vijeysssdddmn@gmail.com','AusSyd@*394948',true)
+        await this.login('vijeysssdddmol@gmail.com','AusSyd@*394948',true)
     }
 
     private async login(emailId:string,password:string,loginType:boolean){

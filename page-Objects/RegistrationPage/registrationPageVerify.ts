@@ -61,12 +61,12 @@ export class RegistrationPageVerify extends HelperBaseLP{
     async passwordrVerify(){
         const password = this.page.locator('.inputs').filter({has:this.page.locator("label:text-is('Password:')")}).locator('input')
         expect(await password.isEnabled()).toBeTruthy()
-        const isReadOnlyPW = await password.evaluate((indfsdput) => !indfsdput.readOnly)
+        const isReadOnlyPW = await password.evaluate((input:any) => !input.readOnly)
         expect(isReadOnlyPW).toBeTruthy()
 
         const confirmPassword = this.page.locator('.inputs').filter({has:this.page.locator("label:text-is('Confirm password:')")}).locator('input')
         expect(await confirmPassword.isEnabled()).toBeTruthy()
-        const isReadOnlyCPW = await confirmPassword.evaluate((input) => !input.readOnly) 
+        const isReadOnlyCPW = await confirmPassword.evaluate((input:any) => !input.readOnly) 
         expect(isReadOnlyCPW).toBeTruthy()
 
         await password.fill(faker.person.firstName())
@@ -79,7 +79,7 @@ export class RegistrationPageVerify extends HelperBaseLP{
     private async inputBoxVerifyBase(textValue: string){
         const verifyFeild = this.page.locator('.inputs').filter({hasText:textValue}).locator('input')
         expect(await verifyFeild.isEnabled()).toBeTruthy()
-        const isReadOnly = await verifyFeild.evaluate((input) => !input.readOnly)
+        const isReadOnly = await verifyFeild.evaluate((input:any) => !input.readOnly)
         expect(isReadOnly).toBeTruthy()
     }
 

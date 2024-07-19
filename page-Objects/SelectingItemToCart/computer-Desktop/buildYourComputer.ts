@@ -1,11 +1,11 @@
-import {Page,expect} from "@playwright/test"
+import {Page,expect,Locator} from "@playwright/test"
 import configDetails from "../../../testData/byc.json"
 
 export class BuildYourComputer{
     readonly page: Page
-    expectedProductPrice
+    expectedProductPrice : string | null
     expectedQuantityValue: string
-    expectedSkuValue
+    expectedSkuValue: string | null
     constructor(page: Page){
         this.page = page
     }
@@ -106,8 +106,8 @@ export class BuildYourComputer{
     
     async verifyBYCToCart(){
         await this.sku_price_quantity('.sku span',this.expectedSkuValue,false)
-        const actualConfigVal = await this.page.getByRole('row',{name:"Build your own computer"}).locator('.product .attributes').textContent()
-        function parseConfig(configStr) {
+        const actualConfigVal:any= await this.page.getByRole('row',{name:"Build your own computer"}).locator('.product .attributes').textContent()
+        function parseConfig(configStr:any) {
             const actualConfigObj = {}
             const parts = configStr.split(/(Processor:|RAM:|HDD:|OS:|Software:)/).filter(Boolean)
             for (let i = 0; i < parts.length; i += 2) {
@@ -118,7 +118,7 @@ export class BuildYourComputer{
             return actualConfigObj
         }
         const actualConfigObj = parseConfig(actualConfigVal)
-        function compareObjectValues(actualConfigObj, configDetails) {
+        function compareObjectValues(actualConfigObj:any, configDetails:any) {
             const values1 = Object.values(actualConfigObj).sort()
             const values2 = Object.values(configDetails).sort()
             return JSON.stringify(values1) === JSON.stringify(values2)
@@ -134,7 +134,7 @@ export class BuildYourComputer{
      * @param configLocator provide appropriate locator find the element
      * @param expectedVal provide appropriate expectedValue to the element
      */
-    private async sku_price_quantity(configLocator:string,expectedVal:string,valueTypeInput:boolean){
+    private async sku_price_quantity(configLocator:string,expectedVal:string | null,valueTypeInput:boolean){
         const rowNavi = this.page.getByRole('row',{name:"Build your own computer"})
         if(valueTypeInput){
             const actualVal = await rowNavi.locator(configLocator).inputValue()
